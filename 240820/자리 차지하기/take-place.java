@@ -13,39 +13,28 @@ public class Main {
         N = Integer.parseInt(st.nextToken()); // 사람 수
         M = Integer.parseInt(st.nextToken()); // 의자의 수
         arr = new int[N];
+        int cnt = 0;
 
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < N; i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int left = 0;
-        int right = N;
-        while(left <= right){
-            int mid = left + (right - left) / 2;
-
-            if(check(mid)){
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-        System.out.println(right);
-    }
-
-    static boolean check(int m){
         TreeSet<Integer> set = new TreeSet<>();
         for(int i = 1; i <= M; i++){
             set.add(i);
         }
 
-        for(int i = 0; i < m; i++){
+        for(int i = 0; i < N; i++){
             Integer num = set.floor(arr[i]);
-            if(num == null){
-                return false;
-            } 
-            set.remove(arr[i]);
+            if(num != null){
+                set.remove(num);
+                cnt++;
+            } else {
+                break;
+            }
         }
-        return true;
+
+        System.out.println(cnt);
     }
 }
