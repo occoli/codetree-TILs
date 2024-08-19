@@ -30,7 +30,7 @@ public class Main {
                 right = mid - 1;
             }
         }
-        System.out.println(left-1);
+        System.out.println(right);
     }
 
     static boolean check(int m){
