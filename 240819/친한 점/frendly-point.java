@@ -14,9 +14,9 @@ public class Main {
         TreeSet<Node> set = new TreeSet<>(
             (a, b) -> {
                 if(a.x != b.x){
-                    return Integer.compare(b.x, a.x);
+                    return Integer.compare(a.x, b.x);
                 } else {
-                    return Integer.compare(b.y, a.y);
+                    return Integer.compare(a.y, b.y);
                 }
             });
         
@@ -31,7 +31,7 @@ public class Main {
             if(set.ceiling(node2) == null){
                 sb.append("-1 -1").append("\n");
             } else{
-                sb.append(set.ceiling(node2).x).append(set.ceiling(node2).y).append("\n");
+                sb.append(set.ceiling(node2).x).append(" ").append(set.ceiling(node2).y).append("\n");
             }
         }
 
